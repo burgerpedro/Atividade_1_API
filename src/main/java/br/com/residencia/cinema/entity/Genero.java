@@ -1,10 +1,13 @@
 package br.com.residencia.cinema.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,17 @@ public class Genero {
 	
 	@Column(name = "descricao",length = 100)
 	private String descricao;
+	
+	@OneToMany(mappedBy = "genero")
+	private List<Filme> filmes;	
+	
+	public List<Filme> getFilmes() {
+		return filmes;
+	}
+
+	public void setFilmes(List<Filme> filmes) {
+		this.filmes = filmes;
+	}
 
 	public Integer getIdGenero() {
 		return idGenero;
