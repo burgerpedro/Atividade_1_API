@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -34,12 +35,12 @@ public class Filme {
 	@Column(name = "sipnose",length = 200)
 	private String sipnose;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "iddiretor",referencedColumnName = "iddiretor")
 	private Diretor diretor;
 	 
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "idgenero", referencedColumnName = "idgenero")
 	private Genero genero;

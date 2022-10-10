@@ -30,7 +30,7 @@ public class GeneroService {
 		Genero generoExist = generoRepository.getReferenceById(id);
 		
 		generoExist.setDescricao(genero.getDescricao());
-		generoExist.setIdGenero(genero.getIdGenero());
+		//generoExist.setIdGenero(genero.getIdGenero());
 		return generoRepository.save(generoExist);
 
 	}

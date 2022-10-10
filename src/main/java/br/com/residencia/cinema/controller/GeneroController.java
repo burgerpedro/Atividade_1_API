@@ -57,7 +57,7 @@ public class GeneroController {
 		if(genero == null)
 			return new ResponseEntity<>(genero,HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(genero,HttpStatus.OK);
+			return new ResponseEntity<>(generoService.deleteGenero(id),HttpStatus.OK);
 		
 	}
 }

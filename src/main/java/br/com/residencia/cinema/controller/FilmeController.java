@@ -52,12 +52,12 @@ public class FilmeController {
 	}
 	
 	@DeleteMapping("/{id}") 
-	public ResponseEntity<Filme> deleteFilme(Integer id){
+	public ResponseEntity<Filme> deleteFilme(@PathVariable Integer id){
 		Filme filme = filmeService.getFilmeById(id);
 		if(filme == null)
 			return new ResponseEntity<>(filme,HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(filme,HttpStatus.OK);
+			return new ResponseEntity<>(filmeService.deleteFilme(id),HttpStatus.OK);
 		
 	}
 }

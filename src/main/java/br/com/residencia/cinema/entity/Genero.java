@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Genero")
@@ -24,7 +25,8 @@ public class Genero {
 	@Column(name = "descricao",length = 100)
 	private String descricao;
 	
-	@JsonBackReference
+	//@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "genero")
 	private List<Filme> filmes;	
 	

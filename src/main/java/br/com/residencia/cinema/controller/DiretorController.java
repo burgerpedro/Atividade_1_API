@@ -57,7 +57,7 @@ public class DiretorController {
 		if(diretor == null)
 			return new ResponseEntity<>(diretor,HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(diretor,HttpStatus.OK);
+			return new ResponseEntity<>(diretorSerice.deleteDiretor(id),HttpStatus.OK);
 		
 	}
 }
