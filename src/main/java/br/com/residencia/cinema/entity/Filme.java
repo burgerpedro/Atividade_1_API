@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "Filme")
 public class Filme {
@@ -26,16 +28,18 @@ public class Filme {
 	@Column(name ="nomeen",length = 100)
 	private String nomeEn;
 	
-	@Column(name = "anolacamento")
-	private Timestamp anoLancamento;
+	@Column(name = "anolacamento",length = 4)
+	private Integer anoLancamento;
 	
 	@Column(name = "sipnose",length = 200)
 	private String sipnose;
 	
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "iddiretor",referencedColumnName = "iddiretor")
 	private Diretor diretor;
 	 
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "idgenero", referencedColumnName = "idgenero")
 	private Genero genero;
@@ -64,14 +68,6 @@ public class Filme {
 		this.nomeEn = nomeEn;
 	}
 
-	public Timestamp getAnoLancamento() {
-		return anoLancamento;
-	}
-
-	public void setAnoLancamento(Timestamp anoLancamento) {
-		this.anoLancamento = anoLancamento;
-	}
-
 	public String getSipnose() {
 		return sipnose;
 	}
@@ -94,6 +90,14 @@ public class Filme {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public Integer getAnoLancamento() {
+		return anoLancamento;
+	}
+
+	public void setAnoLancamento(Integer anoLancamento) {
+		this.anoLancamento = anoLancamento;
 	}
 	
 	
